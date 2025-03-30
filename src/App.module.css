@@ -1,0 +1,7 @@
+.grid{
+  display: grid;
+  grid-template-columns:6fr 2fr;
+  align-items: center;
+  height: 80vh;
+  margin: 20px 50px;
+}
