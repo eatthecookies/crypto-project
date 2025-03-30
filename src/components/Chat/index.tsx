@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
-import { io, Socket } from "socket.io-client";
+import { Socket } from "socket.io-client";
+import io from "socket.io-client";
 import { Button, Flex, Input, Tag, Typography } from "antd";
 import styles from "./Chat.module.css";
 
@@ -39,7 +40,9 @@ export default function Chat() {
     });
     newSocket.on("disconnect", () => setSocket(null));
 
-    return () => newSocket.disconnect();
+    return () => {
+      newSocket.disconnect();
+    };
   }, []);
 
   const sendMessage = useCallback(() => {
