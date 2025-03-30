@@ -2,8 +2,8 @@ import { CryptoDataType, ResponseDataType } from "./types.ts";
 import axios from "axios";
 
 export function transformData(data: ResponseDataType[]): CryptoDataType[] {
-  return data.map((item) => ({
-    key: item.market_cap_rank,
+  return data.map((item, index) => ({
+    key: item.market_cap_rank || index + 1,
     name: item.name,
     logo: item.image,
     symbol: item.symbol.toUpperCase(),
